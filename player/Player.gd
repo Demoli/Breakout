@@ -1,5 +1,8 @@
 extends KinematicBody2D
 
+var min_width: int = 50
+var max_width: int = 300
+
 export var width: int = 100 setget set_width, get_width
 export var height: int = 20 setget set_width, get_width
 export var speed: int = 200
@@ -7,7 +10,6 @@ export var speed: int = 200
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -28,9 +30,11 @@ func _draw():
 	draw_rect(Rect2(0 - width /2, 0 - height / 2, width, height), Color(Color.whitesmoke),true)
 	
 func set_width(new: int):
+	if new <= min_width or new >= max_width:   
+		return
+		
 	width = new
 	update()
-	print(get_width())
 	
 func get_width() -> int:
 	return width
