@@ -1,7 +1,8 @@
 extends KinematicBody2D
 
-var min_width: int = 50
-var max_width: int = 300
+var min_width: int = 60
+var max_width: int = 200
+var paddle_size_modifier = 20
 
 export var width: int = 100 setget set_width, get_width
 export var height: int = 20 setget set_width, get_width
@@ -22,15 +23,15 @@ func _process(delta):
 		position.x += speed * delta
 		
 	if Input.is_action_just_pressed("debug_player_bigger"):
-		set_width(get_width() + 10)
+		set_width(get_width() + paddle_size_modifier)
 	if Input.is_action_just_pressed("debug_player_smaller"):
-		set_width(get_width() - 10)
+		set_width(get_width() - paddle_size_modifier)
 	
 func _draw():
-	draw_rect(Rect2(0 - width /2, 0 - height / 2, width, height), Color(Color.whitesmoke),true)
+	draw_rect(Rect2(0 - width / 2, 0 - height / 2, width, height), Color(Color.whitesmoke),true)
 	
 func set_width(new: int):
-	if new <= min_width or new >= max_width:   
+	if new < min_width or new > max_width:
 		return
 		
 	width = new
