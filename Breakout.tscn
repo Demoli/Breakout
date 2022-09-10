@@ -1,12 +1,25 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ball/Ball.tscn" type="PackedScene" id=2]
+[ext_resource path="res://wall/Wall.tscn" type="PackedScene" id=3]
 
 [node name="GameScene" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 500, 500 )
+position = Vector2( 508, 584 )
 
 [node name="Ball" parent="." instance=ExtResource( 2 )]
-position = Vector2( 496, 464 )
+position = Vector2( 504, 548 )
+
+[node name="Node2D" parent="." instance=ExtResource( 3 )]
+scale = Vector2( 1, 1.486 )
+
+[node name="Node2D4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1029, 0 )
+scale = Vector2( 1, 1.486 )
+
+[node name="Node2D3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 15, 0 )
+rotation = -1.5708
+scale = Vector2( 1, 2.3 )

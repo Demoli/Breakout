@@ -1,8 +1,9 @@
 extends KinematicBody2D
 
+class_name Ball
 
 var size: int = 10
-var speed: int = 200
+var speed: int = 500
 var velocity: Vector2 = Vector2(0,0)
 var fired = false
 
@@ -18,21 +19,24 @@ func _process(delta):
 	if Input.is_action_just_pressed("fire_ball") and not fired:
 		fire()
 	
-	var collisions = move_and_collide(velocity * delta)
-	if collisions:
-		handle_collisions(collisions)
+	print(rad2deg(velocity.angle()))	
+	
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		handle_collision(collision)
 
 func fire() -> void:
-	var start_x = randi() % 2
-	
-	if start_x == 1:
-		velocity.x += speed # left
-	else: 
-		velocity.x -= speed # right
 
-	velocity.y -= speed
+	velocity.y = -speed
+
+	var start_x = randi() % 2
+
+	if start_x == 1:
+		velocity = velocity.rotated(deg2rad(-60))
+	else: 
+		velocity = velocity.rotated(deg2rad(60))
 
 	fired = true
 
-func handle_collisions(collisions) -> void:
-	pass
+func handle_collision(collision) -> void:
+	velocity = velocity.bounce(collision.normal)

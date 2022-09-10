@@ -1,12 +1,14 @@
 extends KinematicBody2D
 
+class_name Player
+
 var min_width: int = 60
 var max_width: int = 200
 var paddle_size_modifier = 20
 
 export var width: int = 100 setget set_width, get_width
 export var height: int = 20 setget set_width, get_width
-export var speed: int = 200
+export var speed: int = 500
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

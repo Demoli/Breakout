@@ -8,6 +8,28 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Ball",
+"language": "GDScript",
+"path": "res://ball/Ball.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://player/Player.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Wall",
+"language": "GDScript",
+"path": "res://wall/Wall.gd"
+} ]
+_global_script_class_icons={
+"Ball": "",
+"Player": "",
+"Wall": ""
+}
+
 [application]
 
 config/name="Breakout"
