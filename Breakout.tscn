@@ -13,13 +13,14 @@ position = Vector2( 508, 584 )
 position = Vector2( 504, 548 )
 
 [node name="Node2D" parent="." instance=ExtResource( 3 )]
+position = Vector2( 317, -30 )
 scale = Vector2( 1, 1.486 )
 
 [node name="Node2D4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1029, 0 )
+position = Vector2( 653, -40 )
 scale = Vector2( 1, 1.486 )
 
 [node name="Node2D3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 15, 0 )
+position = Vector2( 33, 246 )
 rotation = -1.5708
 scale = Vector2( 1, 2.3 )

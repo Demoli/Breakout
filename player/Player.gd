@@ -47,3 +47,20 @@ func set_height(new: int):
 	
 func get_height() -> int:
 	return height
+
+func apply_bounce(collision: KinematicCollision2D, ball: KinematicBody2D):
+	var local_pos = to_local(ball.global_position)
+	var area = smoothstep(-width, width, local_pos.x) * 100
+	var normal = collision.normal
+
+	ball.velocity = ball.velocity.bounce(collision.normal * -1)
+
+	if area >= 0 and area <= 49:  # Left
+		var bounce = rand_range(-10, -60)
+		ball.velocity = ball.velocity.rotated(deg2rad(bounce))
+		pass
+	elif area > 50 : # Right
+		var bounce = rand_range(10, 60)
+		ball.velocity = ball.velocity.rotated(deg2rad(bounce))
+		pass
+		
